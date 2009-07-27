@@ -1,0 +1,27 @@
+<h1>Form 1: Basic html form</h1>
+
+<form action="/example/show_params" method="get">		
+	<div>
+		Title <input type="text" name="title" />
+	</div>
+	
+	<div>
+		Body<br/>
+		<textarea name="body" cols="50" rows="10"/></textarea>
+	</div>
+	
+	<div>
+		<input type="checkbox" name="publish" value="true" checked="checked" /> publish
+	</div>
+	
+	<div>
+	  Category 
+		<select name="category">
+		  <option value="1">Ruby</option>
+		  <option value="2">Rails</option>
+		  <option value="3">Birds</option>
+	  </select>
+	</div>
+	
+	<input type="submit" value="Show!" />
+</form>

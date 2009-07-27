@@ -1,0 +1,39 @@
+body {
+	margin: 30px;
+	font-size:	12pt;
+	font-family: Arial;
+}
+
+ul#menu {
+	float: right;
+	list-style: none;
+	padding: 0;
+}
+
+ul#menu li {
+	margin-bottom: 10px;
+	font-size: 10pt;
+	height: 36px;
+}
+
+ul#menu li a {
+	float: left;
+	padding: 8px;
+	background-color: #efefef;
+	height: 20px;
+	width: 240px;
+}
+
+pre {
+	line-height: 20pt;
+	margin: 0;
+	font-family: Monaco;
+}
+
+form div {
+	margin-bottom: 10px;
+}
+
+input, textarea, select {
+	font-size: 12pt;
+}

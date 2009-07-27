@@ -1,0 +1,35 @@
+<h1>Form 4: Checkbox gotcha</h1>
+
+<form action="/example/show_params">
+	<div>
+		Title <input type="text" name="article[title]" />
+	</div>
+	
+	<div>
+		Body<br/>
+		<textarea name="article[body]" cols="50" rows="10"/></textarea>
+	</div>
+	
+	<div>
+		<input type="hidden" name="article[publish]" value="false" />
+		<input type="checkbox" name="article[publish]" value="true" checked="checked" /> publish
+	</div>
+	
+	<div>
+	  Category 
+	  <select name="article[category]">
+		  <option value="1">Ruby</option>
+		  <option value="2">Rails</option>
+		  <option value="3">Birds</option>
+	  </select>
+	</div>
+	
+	<div>
+		<h3>Tags</h3>
+		<input type="checkbox" name="article[tags][]" value="foo" /> foo<br/>
+		<input type="checkbox" name="article[tags][]" value="bar" /> bar<br/>
+		<input type="checkbox" name="article[tags][]" value="baz" /> baz<br/>
+	</div>
+	
+	<input type="submit" value="Show!" />
+</form>

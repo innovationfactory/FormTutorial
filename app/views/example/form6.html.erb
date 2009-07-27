@@ -1,0 +1,35 @@
+<h1>Form 6: Rails form_for form</h1>
+
+<% form_for :article do |f| %>
+
+	<!--
+		Action, method and default field values are automagically
+		inferred from the @article object if it exists.
+	-->
+
+	<div>
+		Title <%= f.text_field "title" %>
+	</div>
+	
+	<div>
+		Body<br/>
+		<%= f.text_area "body", :cols => 50, :rows => 10 %>
+	</div>
+	
+	<div>
+		<%= f.check_box "publish", :checked => true %> publish
+	</div>
+	
+	<div>
+	  Category <%= f.select "category", "Ruby" => 1, "Rails" => 2, "Birds" => 3 %>
+	</div>
+	
+	<div>
+		<h3>Tags</h3>
+		<%= check_box_tag "article[tags][]", "foo" %> foo<br/>
+		<%= check_box_tag "article[tags][]", "bar" %> bar<br/>
+		<%= check_box_tag "article[tags][]", "baz" %> baz<br/>
+	</div>
+	
+	<%= f.submit "Show!" %>
+<% end %>

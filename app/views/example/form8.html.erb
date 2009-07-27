@@ -1,0 +1,43 @@
+<h1>Form 8/9: Nested form</h1>
+
+<% form_for @article, :url => "/example/show_params" do |f| %>
+
+	<div>
+		Title <%= f.text_field "title" %>
+	</div>
+	
+	<div>
+		Body<br/>
+		<%= f.text_area "body", :cols => 50, :rows => 10 %>
+	</div>
+	
+	<div>
+		<%= f.check_box "publish" %> publish
+	</div>
+	
+	<div>
+	  Category <%= f.select "category", "Ruby" => 1, "Rails" => 2, "Birds" => 3 %>
+	</div>
+	
+	<div>
+		<h3>Tags</h3>
+		<%= check_box_tag "article[tags][]", "foo", f.object.tags.include?('foo') %> foo<br/>
+		<%= check_box_tag "article[tags][]", "bar", f.object.tags.include?('bar') %> bar<br/>
+		<%= check_box_tag "article[tags][]", "baz", f.object.tags.include?('baz') %> baz<br/>
+	</div>
+	
+	<h3>Attachments</h3>
+	
+	<% f.fields_for :attachments do |af| %>
+		<div>		
+			Name <%= af.text_field :name %><br />
+			URL  <%= af.text_field :url %><br />
+			<% unless af.object.new_record? %>
+				<%= af.check_box "_delete" %> Destroy
+			<% end %>
+			<hr />
+		</div>
+	<% end %>
+	
+	<%= f.submit "Show!" %>
+<% end %>

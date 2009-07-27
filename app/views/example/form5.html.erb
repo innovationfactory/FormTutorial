@@ -1,0 +1,30 @@
+<h1>Form 5: Basic Rails form</h1>
+
+<% form_tag "/example/show_params" do %>
+	<div>
+		Title <%= text_field_tag "article[title]" %>
+	</div>
+	
+	<div>
+		Body<br/>
+		<%= text_area_tag "article[body]", nil, :cols => 50, :rows => 10 %>
+	</div>
+	
+	<div>
+		<%= hidden_field_tag "article[publish]", false %>
+		<%= check_box_tag "article[publish]", true, true %> publish
+	</div>
+	
+	<div>
+	  Category <%= select_tag "article[category]", grouped_options_for_select("Things" => {"Ruby" => 1, "Rails" => 2, "Birds" => 3}) %>
+	</div>
+	
+	<div>
+		<h3>Tags</h3>
+		<%= check_box_tag "article[tags][]", "foo" %> foo<br/>
+		<%= check_box_tag "article[tags][]", "bar" %> bar<br/>
+		<%= check_box_tag "article[tags][]", "baz" %> baz<br/>
+	</div>
+	
+	<%= submit_tag "Show!" %>
+<% end %>
